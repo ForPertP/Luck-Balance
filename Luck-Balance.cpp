@@ -1,3 +1,20 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string ltrim(const string &);
+string rtrim(const string &);
+vector<string> split(const string &);
+
+/*
+ * Complete the 'luckBalance' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts following parameters:
+ *  1. INTEGER k
+ *  2. 2D_INTEGER_ARRAY contests
+ */
+
 int luckBalance(int k, vector<vector<int>> contests)
 {
     vector<int> imp;
