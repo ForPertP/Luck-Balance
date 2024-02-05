@@ -26,6 +26,30 @@ class Result
 
     public static int luckBalance(int k, List<List<int>> contests)
     {
+        List<int> imp = new List<int>();
+        int luck = 0;
+
+        for (int i = 0; i < contests.Count; ++i)
+        {
+            if (contests[i][1] != 0)
+            {
+                imp.Add(contests[i][0]);
+                luck -= contests[i][0];
+            }
+            else
+            {
+                luck += contests[i][0];
+            }
+        }
+
+        imp.Sort((a, b) => b.CompareTo(a));
+
+        for (int i = 0; i < Math.Min(k, (int)imp.Count); ++i)
+        {
+            luck += 2 * imp[i];
+        }
+
+        return luck;
     }
 }
 
