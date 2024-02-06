@@ -22,6 +22,30 @@ class Result {
      */
 
     public static int luckBalance(int k, List<List<Integer>> contests) {
+        List<Integer> imp = new ArrayList<>();
+        int luck = 0;
+
+        for (int i = 0; i < contests.size(); ++i)
+        {
+            if (contests.get(i).get(1) != 0)
+            {
+                imp.add(contests.get(i).get(0));
+                luck -= contests.get(i).get(0);
+            }
+            else
+            {
+                luck += contests.get(i).get(0);
+            }
+        }
+
+        Collections.sort(imp, Collections.reverseOrder());
+
+        for (int i = 0; i < Math.min(k, imp.size()); ++i)
+        {
+            luck += 2 * imp.get(i);
+        }
+
+        return luck;
     }
 
 }
